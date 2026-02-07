@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sunday Sermons MusiQ</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1A1F2B;
@@ -16,13 +16,16 @@
       --text: #F7F7F7;
       --light-text: #B0BEC5;
       --bg: #0C151C;
-      --card-bg: rgba(26, 31, 43, 0.9);
-      --border: rgba(255, 107, 53, 0.3);
-      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      --gradient: linear-gradient(135deg, var(--accent), var(--secondary));
-      --accent-glow: 0 0 15px rgba(0, 168, 204, 0.5), 0 0 30px rgba(0, 168, 204, 0.2);
-      --secondary-glow: 0 0 15px rgba(255, 107, 53, 0.5), 0 0 30px rgba(255, 107, 53, 0.2);
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --card-bg: rgba(20, 25, 35, 0.95);
+      --border: rgba(255, 107, 53, 0.25);
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --gradient: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+      --gradient-reverse: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+      --accent-glow: 0 0 20px rgba(0, 168, 204, 0.4);
+      --secondary-glow: 0 0 20px rgba(255, 107, 53, 0.4);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.2);
+      --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
     
     * {
@@ -32,15 +35,14 @@
     }
     
     body {
-      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--text);
       background-color: var(--bg);
       line-height: 1.6;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 5% 15%, rgba(0, 168, 204, 0.1) 0%, transparent 25%),
-        radial-gradient(circle at 95% 85%, rgba(255, 107, 53, 0.1) 0%, transparent 25%),
-        linear-gradient(to bottom, rgba(12, 21, 28, 0.9), rgba(12, 21, 28, 0.7));
+        radial-gradient(circle at 0% 0%, rgba(0, 168, 204, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(255, 107, 53, 0.15) 0%, transparent 50%);
       min-height: 100vh;
     }
     
@@ -58,23 +60,23 @@
     
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
     }
     
-    /* Header */
+    /* Header - Modern Design */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(26, 31, 43, 0.98);
-      backdrop-filter: blur(15px);
+      background: rgba(20, 25, 35, 0.92);
+      backdrop-filter: blur(20px);
       z-index: 1000;
-      padding: 20px 0;
+      padding: 18px 0;
       border-bottom: 1px solid var(--border);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: var(--transition);
     }
     
@@ -87,43 +89,51 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 14px;
       font-weight: 900;
-      font-size: 2rem;
+      font-size: 1.8rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: 1.2px;
+      color: var(--text);
       position: relative;
-      font-family: 'Playfair Display', serif;
-      padding: 5px 0;
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 8px 0;
+    }
+    
+    .logo::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
     }
     
     .logo img {
-      height: 45px;
+      height: 42px;
       transition: var(--transition);
-      filter: drop-shadow(0 0 8px rgba(0, 168, 204, 0.6));
+      filter: drop-shadow(0 0 10px rgba(0, 168, 204, 0.5));
     }
     
     .logo:hover img {
-      transform: rotate(15deg) scale(1.15);
+      transform: rotate(15deg) scale(1.1);
     }
     
     nav ul {
       display: flex;
       list-style: none;
-      gap: 35px;
+      gap: 32px;
     }
     
     nav a {
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 0.5px;
       color: var(--light-text);
       position: relative;
-      padding: 8px 0;
+      padding: 6px 0;
     }
     
     nav a.active {
@@ -136,10 +146,10 @@
       bottom: 0;
       left: 0;
       width: 0;
-      height: 3px;
+      height: 2px;
       background: var(--gradient);
       transition: var(--transition);
-      border-radius: 2px;
+      border-radius: 1px;
     }
     
     nav a:hover, nav a.active::after {
@@ -157,10 +167,10 @@
       background: none;
       border: none;
       color: var(--text);
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       cursor: pointer;
-      width: 45px;
-      height: 45px;
+      width: 44px;
+      height: 44px;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.05);
       transition: var(--transition);
@@ -168,12 +178,11 @@
     
     .mobile-menu-btn:hover {
       background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.1);
     }
     
-    /* Hero Section */
+    /* Hero Section - Modern Design */
     .hero {
-      padding: 200px 0 120px;
+      padding: 180px 0 100px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -187,10 +196,10 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 20% 30%, rgba(0, 168, 204, 0.25) 0%, transparent 35%),
-        radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.25) 0%, transparent 35%);
+        radial-gradient(circle at 15% 20%, rgba(0, 168, 204, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(255, 107, 53, 0.2) 0%, transparent 40%);
       z-index: 1;
-      animation: pulse 8s ease-in-out infinite alternate;
+      animation: pulse 10s ease-in-out infinite alternate;
     }
     
     .hero .container {
@@ -202,32 +211,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 60px;
+      gap: 80px;
       flex-wrap: wrap;
     }
     
     .hero-image {
       flex: 1;
-      max-width: 450px;
+      max-width: 460px;
       animation: float 8s ease-in-out infinite;
-      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
     }
     
     .hero-image img {
       width: 100%;
-      border-radius: 25px;
-      box-shadow: var(--shadow), 0 0 40px rgba(0, 168, 204, 0.4);
-      border: 4px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      transform: perspective(1000px) rotateY(-10deg);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg), 0 0 50px rgba(0, 168, 204, 0.3);
+      border: 2px solid transparent;
+      background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box, var(--gradient) border-box;
       transition: var(--transition);
     }
     
     .hero-image:hover img {
-      transform: perspective(1000px) rotateY(0deg) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 50px rgba(0, 168, 204, 0.5);
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg), 0 0 60px rgba(0, 168, 204, 0.4);
     }
     
     .hero-text {
@@ -237,27 +243,31 @@
     }
     
     .hero h1 {
-      font-size: 4rem;
-      margin-bottom: 25px;
+      font-size: 3.5rem;
+      margin-bottom: 24px;
       font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      letter-spacing: -0.5px;
+      color: var(--text);
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       animation: fadeInDown 1s ease;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       line-height: 1.1;
     }
     
+    .hero h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
     .hero p {
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 0 40px;
       color: var(--light-text);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       animation: fadeIn 1.5s ease;
-      line-height: 1.8;
+      line-height: 1.7;
     }
     
     .hero-buttons {
@@ -270,11 +280,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 18px 40px;
-      border-radius: 50px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      padding: 16px 36px;
+      border-radius: 12px;
+      font-weight: 700;
       font-size: 0.95rem;
       transition: var(--transition);
       position: relative;
@@ -282,7 +290,8 @@
       z-index: 1;
       border: none;
       cursor: pointer;
-      min-width: 180px;
+      min-width: 160px;
+      letter-spacing: 0.5px;
     }
     
     .btn::before {
@@ -304,84 +313,79 @@
     .btn-primary {
       background: var(--gradient);
       color: white;
-      box-shadow: 0 8px 20px rgba(0, 168, 204, 0.4);
+      box-shadow: var(--shadow-md);
     }
     
     .btn-primary:hover {
-      transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(0, 168, 204, 0.5), var(--accent-glow);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg), var(--accent-glow);
       color: white;
     }
     
     .btn-outline {
-      border: 3px solid var(--secondary);
+      border: 2px solid var(--secondary);
       color: var(--secondary);
       background: transparent;
-      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
     }
     
     .btn-outline:hover {
       background: var(--secondary);
       color: var(--primary);
-      transform: translateY(-8px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(255, 107, 53, 0.4), var(--secondary-glow);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md), var(--secondary-glow);
     }
     
     /* Sections */
     .section {
-      padding: 120px 0;
+      padding: 100px 0;
       position: relative;
     }
     
     .section-title {
       text-align: center;
-      margin-bottom: 70px;
-      font-size: 3rem;
+      margin-bottom: 60px;
+      font-size: 2.8rem;
       font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+      color: var(--text);
       position: relative;
       display: inline-block;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       width: 100%;
     }
     
     .section-title::after {
       content: '';
       position: absolute;
-      bottom: -15px;
+      bottom: -12px;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 5px;
+      width: 80px;
+      height: 4px;
       background: var(--gradient);
-      border-radius: 3px;
-      box-shadow: 0 0 15px rgba(0, 168, 204, 0.5);
+      border-radius: 2px;
     }
     
-    /* About Section */
+    /* About Section - Modern Cards */
     .about-container {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 32px;
       flex-wrap: wrap;
     }
     
     .about-card {
       flex: 1;
       min-width: 280px;
-      max-width: 350px;
+      max-width: 320px;
       text-align: center;
-      padding: 50px 30px;
+      padding: 40px 28px;
       background: var(--card-bg);
       border-radius: 20px;
       transition: var(--transition);
-      box-shadow: var(--shadow);
-      border: 2px solid var(--border);
-      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
     }
@@ -392,30 +396,29 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: var(--gradient);
     }
     
     .about-card:hover {
-      transform: translateY(-15px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 168, 204, 0.3);
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(255, 107, 53, 0.4);
     }
     
     .about-card img {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      margin: 0 auto 25px;
-      border: 4px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      box-shadow: 0 0 20px rgba(0, 168, 204, 0.4);
+      margin: 0 auto 24px;
+      border: 3px solid transparent;
+      background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box, var(--gradient) border-box;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
     
     .about-card h3 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 10px;
       color: var(--secondary);
       font-weight: 800;
@@ -431,15 +434,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 50px;
+      gap: 60px;
       margin: 80px auto;
       max-width: 1000px;
       background: var(--card-bg);
-      padding: 50px;
-      border-radius: 25px;
-      box-shadow: var(--shadow);
-      border: 2px solid var(--border);
-      backdrop-filter: blur(15px);
+      padding: 48px;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
     }
@@ -451,28 +454,26 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at top right, rgba(0, 168, 204, 0.2) 0%, transparent 70%);
+      background: radial-gradient(circle at top right, rgba(0, 168, 204, 0.15) 0%, transparent 70%);
       z-index: 0;
     }
     
     .host-info img {
-      width: 250px;
-      height: 250px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
       object-fit: cover;
-      border: 5px solid transparent;
-      background: var(--gradient) padding-box, var(--gradient) border-box;
-      background-origin: border-box;
-      background-clip: padding-box, border-box;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 4px solid transparent;
+      background: linear-gradient(var(--card-bg), var(--card-bg)) padding-box, var(--gradient) border-box;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
       position: relative;
       z-index: 1;
       transition: var(--transition);
     }
     
     .host-info:hover img {
-      transform: scale(1.1);
-      box-shadow: 0 15px 35px rgba(0, 168, 204, 0.5);
+      transform: scale(1.05);
+      box-shadow: 0 16px 40px rgba(0, 168, 204, 0.4);
     }
     
     .host-info-content {
@@ -482,35 +483,35 @@
     }
     
     .host-info p {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--secondary);
       font-weight: 900;
       text-align: center;
-      margin-bottom: 15px;
-      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.5px;
     }
     
     .host-info .title {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: var(--accent);
       text-align: center;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 1px;
     }
     
-    /* Releases Section */
+    /* Releases Section - Modern Cards */
     .release-card {
       max-width: 900px;
-      margin: 0 auto 60px;
+      margin: 0 auto 48px;
       background: var(--card-bg);
       border-radius: 20px;
       overflow: hidden;
       display: flex;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-md);
       transition: var(--transition);
-      border: 2px solid var(--border);
-      backdrop-filter: blur(15px);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
       position: relative;
     }
     
@@ -520,28 +521,29 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: var(--gradient);
     }
     
     .release-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 168, 204, 0.3);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(255, 107, 53, 0.4);
     }
     
     .release-image {
-      width: 350px;
+      width: 320px;
       height: auto;
       object-fit: cover;
       transition: var(--transition);
     }
     
     .release-card:hover .release-image {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
     
     .release-info {
-      padding: 40px;
+      padding: 36px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -549,39 +551,44 @@
     }
     
     .release-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 900;
-      margin-bottom: 25px;
-      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: var(--text);
+      line-height: 1.2;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .release-title span {
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1.2;
+      background-clip: text;
     }
     
     .release-description {
       color: var(--light-text);
-      margin-bottom: 30px;
-      line-height: 1.8;
-      font-size: 1.1rem;
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 1.05rem;
     }
     
     .release-links {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       margin-top: 20px;
       flex-wrap: wrap;
     }
     
-    /* Footer */
+    /* Footer - Modern Design */
     footer {
-      background: rgba(26, 31, 43, 0.98);
+      background: rgba(20, 25, 35, 0.98);
       color: var(--text);
-      padding: 80px 0 40px;
+      padding: 70px 0 30px;
       text-align: center;
       position: relative;
       border-top: 1px solid var(--border);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(10px);
     }
     
     footer::before {
@@ -592,24 +599,23 @@
       width: 100%;
       height: 3px;
       background: var(--gradient);
-      box-shadow: 0 0 15px rgba(0, 168, 204, 0.5);
     }
     
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 36px;
       margin-bottom: 40px;
       flex-wrap: wrap;
     }
     
     .footer-links a {
       color: var(--light-text);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       transition: var(--transition);
       position: relative;
-      padding: 5px 0;
+      padding: 4px 0;
     }
     
     .footer-links a::after {
@@ -625,7 +631,6 @@
     
     .footer-links a:hover {
       color: var(--secondary);
-      transform: translateY(-5px);
     }
     
     .footer-links a:hover::after {
@@ -641,7 +646,7 @@
     @keyframes fadeInDown {
       from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(-20px);
       }
       to {
         opacity: 1;
@@ -650,9 +655,9 @@
     }
     
     @keyframes pulse {
-      0% { opacity: 0.7; }
+      0% { opacity: 0.8; }
       50% { opacity: 1; }
-      100% { opacity: 0.7; }
+      100% { opacity: 0.8; }
     }
     
     /* Floating elements animation */
@@ -662,38 +667,38 @@
     
     @keyframes float {
       0% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+      50% { transform: translateY(-15px); }
       100% { transform: translateY(0px); }
     }
     
     /* Page content styles */
     .page-content {
       display: none;
-      animation: fadeIn 0.7s ease;
+      animation: fadeIn 0.5s ease;
     }
     
     .page-content.active {
       display: block;
     }
     
-    /* Music Platforms Section */
+    /* Music Platforms Section - Modern */
     .music-platforms {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      margin: 50px 0;
+      gap: 32px;
+      margin: 48px 0;
       flex-wrap: wrap;
     }
     
     .platform-card {
       background: var(--card-bg);
-      border-radius: 20px;
-      padding: 30px;
+      border-radius: 16px;
+      padding: 32px 24px;
       text-align: center;
-      width: 220px;
+      width: 200px;
       transition: var(--transition);
-      border: 2px solid var(--border);
-      backdrop-filter: blur(15px);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
     }
@@ -704,56 +709,56 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: var(--gradient);
     }
     
     .platform-card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
     }
     
     .platform-icon {
-      font-size: 50px;
+      font-size: 48px;
       margin-bottom: 20px;
       color: var(--secondary);
       transition: var(--transition);
     }
     
     .platform-card:hover .platform-icon {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
     
     .platform-name {
       font-weight: 800;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
       color: var(--text);
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
     
     .platform-btn {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 10px 24px;
       background: var(--gradient);
       color: white;
-      border-radius: 30px;
-      font-size: 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
       font-weight: 700;
       transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(0, 168, 204, 0.3);
+      box-shadow: var(--shadow-sm);
     }
     
     .platform-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 168, 204, 0.5);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-md);
     }
     
-    /* Contact Icons */
+    /* Contact Icons - Modern */
     .contact-icons {
       display: flex;
       justify-content: center;
-      gap: 50px;
-      margin: 50px 0;
+      gap: 48px;
+      margin: 48px 0;
       flex-wrap: wrap;
     }
     
@@ -761,58 +766,58 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
       transition: var(--transition);
     }
     
     .contact-icon a {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       background: var(--gradient);
       color: white;
-      font-size: 40px;
+      font-size: 36px;
       transition: var(--transition);
-      box-shadow: 0 8px 20px rgba(0, 168, 204, 0.4);
+      box-shadow: var(--shadow-md);
     }
     
     .contact-icon a:hover {
-      transform: translateY(-10px) scale(1.15);
-      box-shadow: 0 15px 30px rgba(0, 168, 204, 0.6);
+      transform: translateY(-8px) scale(1.1);
+      box-shadow: var(--shadow-lg);
     }
     
     .contact-icon span {
       color: var(--light-text);
-      font-size: 1rem;
+      font-size: 0.95rem;
       text-align: center;
       font-weight: 600;
     }
     
-    /* UPDATED Social Icons Only */
+    /* Social Icons - Modern */
     .icon-only {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      margin: 40px 0;
+      gap: 20px;
+      margin: 36px 0;
       flex-wrap: wrap;
     }
     
     .icon-only a {
-      width: 60px;
-      height: 60px;
-      border-radius: 15px;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
       color: var(--text);
-      font-size: 24px;
+      font-size: 20px;
       transition: var(--transition);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       position: relative;
       overflow: hidden;
     }
@@ -831,9 +836,9 @@
     }
     
     .icon-only a:hover {
-      transform: translateY(-8px) scale(1.15);
+      transform: translateY(-5px) scale(1.1);
       color: white;
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow-md);
       border-color: transparent;
     }
     
@@ -847,19 +852,17 @@
     .icon-only a:nth-child(4):hover { background: #000000; }
     .icon-only a:nth-child(5):hover { background: #0055ff; }
     .icon-only a:nth-child(6):hover { background: #2DAAE1; }
-    .icon-only a:nth-child(7):hover { background: linear-gradient(45deg, #8a2387, #f27121, #e94057); }
-    .icon-only a:nth-child(8):hover { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
     
-    /* Mission Box */
+    /* Mission Box - Modern */
     .mission-box {
       max-width: 900px;
       margin: 80px auto 0;
       background: var(--card-bg);
-      padding: 50px;
+      padding: 48px;
       border-radius: 20px;
-      box-shadow: var(--shadow);
-      border: 2px solid var(--border);
-      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
     }
@@ -870,38 +873,37 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: var(--gradient);
     }
     
     .mission-box h3 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       color: var(--secondary);
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: -0.5px;
     }
     
     .mission-box p {
       color: var(--light-text);
-      line-height: 1.9;
+      line-height: 1.8;
       text-align: center;
       font-size: 1.1rem;
     }
     
-    /* Contact Box */
+    /* Contact Box - Modern */
     .contact-box {
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
       background: var(--card-bg);
-      padding: 50px;
+      padding: 48px;
       border-radius: 20px;
-      box-shadow: var(--shadow);
-      border: 2px solid var(--border);
-      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
     }
@@ -912,7 +914,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 5px;
+      height: 4px;
       background: var(--gradient);
     }
     
@@ -920,17 +922,34 @@
       margin-bottom: 40px;
       color: var(--light-text);
       font-size: 1.1rem;
-      line-height: 1.8;
+      line-height: 1.7;
     }
     
-    /* Responsive */
+    /* MWM Technologies Footer */
+    .mwm-credit {
+      margin-top: 30px;
+      color: var(--light-text);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    .mwm-credit span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    
+    /* Responsive Design */
     @media (max-width: 1100px) {
       .hero h1 {
-        font-size: 3.2rem;
+        font-size: 3rem;
       }
       
       .section-title {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
+      }
+      
+      .hero-content {
+        gap: 60px;
       }
     }
     
@@ -941,12 +960,13 @@
       
       .release-image {
         width: 100%;
-        height: 350px;
+        height: 300px;
       }
       
       .hero-content {
         flex-direction: column;
         text-align: center;
+        gap: 50px;
       }
       
       .hero-text {
@@ -957,39 +977,39 @@
         flex-direction: column;
         text-align: center;
         gap: 40px;
+        padding: 40px;
       }
       
       .hero h1 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
       }
     }
     
     @media (max-width: 768px) {
       .header-container {
         flex-direction: row;
-        gap: 20px;
+        gap: 16px;
       }
       
       nav ul {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 24px;
       }
       
       .hero {
-        padding: 180px 0 100px;
+        padding: 160px 0 80px;
       }
       
       .hero h1 {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
       }
       
       .section {
-        padding: 100px 0;
+        padding: 80px 0;
       }
       
       .about-card {
         min-width: 100%;
+        max-width: 100%;
       }
       
       .section-title {
@@ -1004,19 +1024,19 @@
       
       nav {
         position: fixed;
-        top: 90px;
+        top: 80px;
         left: 0;
         width: 100%;
-        background: rgba(26, 31, 43, 0.98);
-        backdrop-filter: blur(15px);
-        padding: 30px 20px;
+        background: rgba(20, 25, 35, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px 20px;
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
         transition: var(--transition);
         z-index: 999;
-        border-bottom: 2px solid var(--border);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
       
       nav.active {
@@ -1028,47 +1048,51 @@
       nav ul {
         flex-direction: column;
         text-align: center;
-        gap: 25px;
+        gap: 20px;
       }
       
       .footer-links {
-        gap: 30px;
+        gap: 24px;
       }
       
       .contact-icons {
-        gap: 30px;
+        gap: 32px;
       }
       
       .music-platforms {
-        gap: 30px;
+        gap: 24px;
       }
       
       .platform-card {
         width: 100%;
-        max-width: 280px;
+        max-width: 260px;
       }
       
       .btn {
-        min-width: 160px;
-        padding: 16px 30px;
+        min-width: 140px;
+        padding: 14px 28px;
       }
       
       .hero-buttons {
         justify-content: center;
       }
+      
+      .mission-box, .contact-box {
+        padding: 36px 24px;
+      }
     }
     
     @media (max-width: 576px) {
       .logo {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
       
       .logo img {
-        height: 35px;
+        height: 36px;
       }
       
       .hero h1 {
-        font-size: 2rem;
+        font-size: 1.9rem;
       }
       
       .hero p {
@@ -1080,24 +1104,51 @@
       }
       
       .release-title {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
       
       .host-info p {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       
       .mission-box, .contact-box {
-        padding: 30px 20px;
+        padding: 28px 20px;
       }
       
       .release-links {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
       }
       
       .release-links .btn {
         width: 100%;
+      }
+      
+      .contact-icon a {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+      }
+      
+      .contact-icons {
+        gap: 24px;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      
+      .btn {
+        min-width: 120px;
+        padding: 12px 24px;
+        font-size: 0.85rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -1132,7 +1183,7 @@
             <img src="1.png" alt="Sunday Sermons MusiQ">
           </div>
           <div class="hero-text">
-            <h1>Sunday Sermons MusiQ</h1>
+            <h1><span>Sunday</span> Sermons MusiQ</h1>
             <p>
               Where producers take the decks. Hosted by I'M MusiQ, this series showcases a different artist each Sunday, each presenting a mix composed entirely of their own production music. Dive deep into the authentic, unfiltered sound of the creator.
             </p>
@@ -1152,9 +1203,9 @@
         <div class="release-card">
           <img src="5.png" alt="Episode 04 Blessed By Twenty Keys" class="release-image">
           <div class="release-info">
-            <h3 class="release-title">Episode 04 Blessed By Twenty Keys</h3>
+            <h3 class="release-title"><span>Episode 04</span> Blessed By Twenty Keys</h3>
             <p class="release-description">
-              The sermon begins with a sacred shuffle. Sunday Sermons MusiQ returns for Episode 04, anointed by Blessed By Twenty Keys. This is the holy water of Amapiano—a deep, spiritual log drum baptism. He doesn't just mix; he ministers, weaving soul-stirring piano keys, sun-drenched basslines, and percussive hosannas that call the congregation to move. Feel the testimony in the rolling shakers, the response in the echoing snares, and the revelation in grooves that connect the pew to the pavement. Your worship is in the rhythm; surrender to the sermon.
+              The sermon begins with a sacred shuffle. Sunday Sermons MusiQ returns for Episode 04, anointed by Blessed By Twenty Keys. This is the holy water of Amapiano—a deep, spiritual log drum baptism. He doesn't just mix; he ministers, weaving soul-stirring piano keys, sun-drenched basslines, and percussive hosannas that call the congregation to move.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/eg21ymq1ba3q0ac/Sunday_Sermons_MusiQ_Episode_04_Blessed_By_Twenty_Keys.zip/file" class="btn btn-primary" target="_blank">Download Now</a>
@@ -1205,13 +1256,13 @@
         <div class="release-card">
           <img src="5.png" alt="Episode 04 Blessed By Twenty Keys" class="release-image">
           <div class="release-info">
-            <h3 class="release-title">Episode 04 Blessed By Twenty Keys</h3>
+            <h3 class="release-title"><span>Episode 04</span> Blessed By Twenty Keys</h3>
             <p class="release-description">
-              The sermon begins with a sacred shuffle. Sunday Sermons MusiQ returns for Episode 04, anointed by Blessed By Twenty Keys. This is the holy water of Amapiano—a deep, spiritual log drum baptism. He doesn't just mix; he ministers, weaving soul-stirring piano keys, sun-drenched basslines, and percussive hosannas that call the congregation to move. Feel the testimony in the rolling shakers, the response in the echoing snares, and the revelation in grooves that connect the pew to the pavement. Your worship is in the rhythm; surrender to the sermon.
+              The sermon begins with a sacred shuffle. Sunday Sermons MusiQ returns for Episode 04, anointed by Blessed By Twenty Keys. This is the holy water of Amapiano—a deep, spiritual log drum baptism. He doesn't just mix; he ministers, weaving soul-stirring piano keys, sun-drenched basslines, and percussive hosannas that call the congregation to move.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/eg21ymq1ba3q0ac/Sunday_Sermons_MusiQ_Episode_04_Blessed_By_Twenty_Keys.zip/file" class="btn btn-primary" target="_blank">Download Now</a>
-              <a href="https://youtu.be/_lgZxkVwiM0?si=KoqgIBuk1W2NM7NR" class="btn btn-outline" target="_blank">Stream on YouTube</a>
+              <a href="https://youtu.be/_lgZxkVwiM0?si=KoqgIBuk1W2NM7NR" class="btn btn-outline" target="_blank">YouTube</a>
             </div>
           </div>
         </div>
@@ -1220,13 +1271,13 @@
         <div class="release-card">
           <img src="7.png" alt="Episode 03 Blessed By PabloSA" class="release-image">
           <div class="release-info">
-            <h3 class="release-title">Episode 03 Blessed By PabloSA</h3>
+            <h3 class="release-title"><span>Episode 03</span> Blessed By PabloSA</h3>
             <p class="release-description">
-              The air hums with ancestral heat. Sunday Sermons MusiQ returns. Pablo SA commands Episode 03, delivering a deep, spiritual Afro House ceremony. This is roots and rhythm. Earth-shaking kicks, sun-warmed synths, and percussive calls to life. He doesn't just play—he channels. Feel the pulse of rolling basslines, haunting echoes, and grooves that connect soil to soul. Your ritual is ready. Surrender to the sound.
+              The air hums with ancestral heat. Sunday Sermons MusiQ returns. Pablo SA commands Episode 03, delivering a deep, spiritual Afro House ceremony. This is roots and rhythm. Earth-shaking kicks, sun-warmed synths, and percussive calls to life. He doesn't just play—he channels.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/6q5l2z9pduve2nm/Sunday_Sermons_MusiQ_Episode_03_Blessed_By_PabloSA.zip/file" class="btn btn-primary" target="_blank">Download Now</a>
-              <a href="https://youtu.be/_lgZxkVwiM0?si=KoqgIBuk1W2NM7NR" class="btn btn-outline" target="_blank">Stream on YouTube</a>
+              <a href="https://youtu.be/_lgZxkVwiM0?si=KoqgIBuk1W2NM7NR" class="btn btn-outline" target="_blank">YouTube</a>
             </div>
           </div>
         </div>
@@ -1235,13 +1286,13 @@
         <div class="release-card">
           <img src="4.png" alt="Episode 02 Blessed By DoskiWaAfrika" class="release-image">
           <div class="release-info">
-            <h3 class="release-title">Episode 02 Blessed By DoskiWaAfrika</h3>
+            <h3 class="release-title"><span>Episode 02</span> Blessed By DoskiWaAfrika</h3>
             <p class="release-description">
-              The room settles, the energy shifts. Sunday Sermons MusiQ returns with DoskiWaAfrika guiding the session through a deep house experience crafted from pure emotion and steady groove. This isn't just another episode — it's a journey into the artist's inner rhythm. Every chord drifts with intention, every beat carries weight, and every layer is shaped with soul. DoskiWaAfrika doesn't just play deep house — he lets it breathe, he lets it move, he lets it speak. Allow the warm textures, rolling basslines, and atmospheric moods to pull you into a space where time slows down and the music takes over. Your weekly escape begins here — tune in and surrender to the sound.
+              The room settles, the energy shifts. Sunday Sermons MusiQ returns with DoskiWaAfrika guiding the session through a deep house experience crafted from pure emotion and steady groove. This isn't just another episode — it's a journey into the artist's inner rhythm.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/us2u10y9qqnceu8/Sunday_Sermons_MusiQ_Episode_02_Blessed_By_DoskiWaAfrika.zip/file" class="btn btn-primary" target="_blank">Download Now</a>
-              <a href="https://youtu.be/_lgZxkVwiM0?si=KoqgIBuk1W2NM7NR" class="btn btn-outline" target="_blank">Stream on YouTube</a>
+              <a href="https://youtu.be/_lgZxkVwiM0?si=KoqgIBuk1W2NM7NR" class="btn btn-outline" target="_blank">YouTube</a>
             </div>
           </div>
         </div>
@@ -1250,13 +1301,13 @@
         <div class="release-card">
           <img src="3.png" alt="Episode 01 Blessed By Deep Root 7" class="release-image">
           <div class="release-info">
-            <h3 class="release-title">Episode 01 Blessed By Deep Root 7</h3>
+            <h3 class="release-title"><span>Episode 01</span> Blessed By Deep Root 7</h3>
             <p class="release-description">
-              The pews are silent, the air is charged. The first sacred session of Sunday Sermons MusiQ commenses with Deep Root 7 delivering the doctrine of deep house. This isn't just a mix; it's a pilgrimage into the artist's own sonic sanctuary. Every pad, every pulse, every whispered vocal is a testament to their craft—a raw, unfiltered communion between creator and congregation. Let the atmospheric rhythms be your guide and the bassline your prayer. Your weekly ritual for the soul begins now.
+              The pews are silent, the air is charged. The first sacred session of Sunday Sermons MusiQ commenses with Deep Root 7 delivering the doctrine of deep house. This isn't just a mix; it's a pilgrimage into the artist's own sonic sanctuary.
             </p>
             <div class="release-links">
               <a href="https://www.mediafire.com/file/bexoo4z2jz1bltx/Sunday_Sermons_MusiQ_Episode_01_Blessed_By_Deep_Root_07.zip/file" class="btn btn-primary" target="_blank">Download Now</a>
-              <a href="https://youtu.be/_lgZxkVwiM0?si=o7ZpXcVG-FXY5mtE" class="btn btn-outline" target="_blank">Stream on YouTube</a>
+              <a href="https://youtu.be/_lgZxkVwiM0?si=o7ZpXcVG-FXY5mtE" class="btn btn-outline" target="_blank">YouTube</a>
             </div>
           </div>
         </div>
@@ -1357,9 +1408,14 @@
         <a href="https://www.mixcloud.com/SundaySermonsMusiQ/" target="_blank"><i class="fas fa-cloud-music"></i></a>
       </div>
       
-      <p style="margin-top: 40px; color: var(--light-text); font-size: 0.9rem;">
+      <p style="margin-top: 30px; color: var(--light-text); font-size: 0.9rem;">
         &copy; 2025 Sunday Sermons MusiQ. All rights reserved.
       </p>
+      
+      <!-- MWM Technologies Credit -->
+      <div class="mwm-credit">
+        <p>Created by <span>MWM Technologies</span></p>
+      </div>
     </div>
   </footer>
 
@@ -1388,6 +1444,8 @@
       
       // Close mobile menu if open
       document.getElementById('main-nav').classList.remove('active');
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
     }
     
     // Check URL hash on page load
@@ -1404,11 +1462,11 @@
     window.addEventListener('scroll', function() {
       const header = document.querySelector('header');
       if (window.scrollY > 100) {
-        header.style.padding = '15px 0';
-        header.style.boxShadow = '0 8px 25px rgba(0,0,0,0.4)';
+        header.style.padding = '14px 0';
+        header.style.boxShadow = '0 6px 20px rgba(0,0,0,0.25)';
       } else {
-        header.style.padding = '20px 0';
-        header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.4)';
+        header.style.padding = '18px 0';
+        header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
       }
     });
 
@@ -1416,14 +1474,15 @@
     document.addEventListener('DOMContentLoaded', function() {
       const floatingElements = document.querySelectorAll('.floating');
       floatingElements.forEach((el, index) => {
-        el.style.animationDelay = `${index * 0.2}s`;
+        el.style.animationDelay = `${index * 0.15}s`;
       });
     });
     
     // Mobile menu toggle
     document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-      document.getElementById('main-nav').classList.toggle('active');
-      this.innerHTML = document.getElementById('main-nav').classList.contains('active') 
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('active');
+      this.innerHTML = nav.classList.contains('active') 
         ? '<i class="fas fa-times"></i>' 
         : '<i class="fas fa-bars"></i>';
     });
@@ -1435,13 +1494,13 @@
       
       if (!nav.contains(event.target) && !menuBtn.contains(event.target)) {
         nav.classList.remove('active');
-        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       }
       
       // Close menu when clicking on a nav link
       if (event.target.closest('nav a')) {
         nav.classList.remove('active');
-        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
       }
     });
     
@@ -1466,8 +1525,8 @@
       
       elements.forEach(element => {
         element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       });
       
       // Trigger scroll event to check initial visibility
