@@ -480,13 +480,13 @@
       flex: 1;
       position: relative;
       z-index: 1;
+      text-align: center;
     }
     
-    .host-info p {
+    .host-info-content p {
       font-size: 2.2rem;
       color: var(--secondary);
       font-weight: 900;
-      text-align: center;
       margin-bottom: 12px;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       letter-spacing: -0.5px;
@@ -495,9 +495,27 @@
     .host-info .title {
       font-size: 1.2rem;
       color: var(--accent);
-      text-align: center;
       font-weight: 600;
       letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    
+    .host-realname {
+      font-size: 1.4rem;
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-top: 2px solid var(--border);
+      padding-top: 18px;
+      margin-top: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .host-realname span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     /* Releases Section - Modern Cards */
@@ -848,8 +866,8 @@
     
     .icon-only a:nth-child(1):hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
     .icon-only a:nth-child(2):hover { background: #1877F2; }
-    .icon-only a:nth-child(3):hover { background: #FF0000; }
-    .icon-only a:nth-child(4):hover { background: #000000; }
+    .icon-only a:nth-child(3):hover { background: #000000; }
+    .icon-only a:nth-child(4):hover { background: #FF0000; }
     .icon-only a:nth-child(5):hover { background: #0055ff; }
     .icon-only a:nth-child(6):hover { background: #2DAAE1; }
     
@@ -925,17 +943,25 @@
       line-height: 1.7;
     }
     
-    /* MWM Technologies Footer */
-    .mwm-credit {
-      margin-top: 30px;
+    /* Contact details styling */
+    .contact-details {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid var(--border);
       color: var(--light-text);
-      font-size: 0.9rem;
-      text-align: center;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
     
-    .mwm-credit span {
+    .contact-details strong {
       color: var(--accent);
       font-weight: 700;
+    }
+    
+    .contact-details span {
+      color: var(--secondary);
     }
     
     /* Responsive Design */
@@ -1326,6 +1352,9 @@
           <div class="host-info-content">
             <p>I'M MusiQ</p>
             <div class="title">Host of Sunday Sermons MusiQ</div>
+            <div class="host-realname">
+              <span>Ailwei Maduna Wa Malada</span>
+            </div>
           </div>
         </div>
         
@@ -1385,6 +1414,13 @@
               <span>Call Us</span>
             </div>
           </div>
+          
+          <!-- Contact details displayed as text -->
+          <div class="contact-details">
+            <div><strong>Host:</strong> <span>Ailwei Maduna Wa Malada (I'M MusiQ)</span></div>
+            <div><strong>Email:</strong> officialnlmmusicgroupafrica@gmail.com</div>
+            <div><strong>Phone / WhatsApp:</strong> 0813398293</div>
+          </div>
         </div>
       </div>
     </section>
@@ -1412,10 +1448,7 @@
         &copy; 2025 Sunday Sermons MusiQ. All rights reserved.
       </p>
       
-      <!-- MWM Technologies Credit -->
-      <div class="mwm-credit">
-        <p>Created by <span>MWM Technologies</span></p>
-      </div>
+      <!-- MWM Technologies credit removed as requested -->
     </div>
   </footer>
 
